@@ -6,7 +6,7 @@
   "scripts": {
     "build:dev": "env NODE_ENV=development webpack --config webpack.config.js",
     "build:prod": "env NODE_ENV=production webpack --config webpack.config.js",
-    "start": "webpack-dev-server",
+    "dev": "env NODE_ENV=development node ./bin/dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "emil",
@@ -20,11 +20,16 @@
     "redux": "^4.0.5"
   },
   "devDependencies": {
+    "@hot-loader/react-dom": "^17.0.0-rc.2",
+    "clean-webpack-plugin": "^3.0.0",
     "parallel-webpack": "^2.6.0",
+    "react-hot-loader": "^4.13.0",
     "ts-loader": "^8.0.5",
     "typescript": "^4.0.3",
     "webpack": "^4.44.1",
     "webpack-cli": "^4.0.0",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-hot-middleware": "^2.25.0",
     "webpack-node-externals": "^2.5.2"
   }
 }
