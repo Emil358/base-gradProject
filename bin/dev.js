@@ -42,12 +42,12 @@ const compiler = webpack(serverConfig, (err, stats) => {
 
 compiler.run((err) => {
   if(err) {
-    console.log('Compilation failed {1}: ', err);
+    // console.log('Compilation failed {1}: ', err);
   }
 
   compiler.watch({}, (err) => {
     if(err) {
-      console.log('Compilation failed {2}: ', err);
+      // console.log('Compilation failed {2}: ', err);
     }
 
     console.log('Compilation was succesfull {3}');

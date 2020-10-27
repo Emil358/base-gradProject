@@ -1,16 +1,15 @@
-import * as React from 'react';
+import React from 'react';
 import { hot } from 'react-hot-loader/root';
-import { Heading } from './components/Header';
-import { UnsplashImage } from './components/UnsplashImage';
-import styles from './App.css';
+import { AppContainer } from './components/AppContainer'
 
-function AppContainer () {
+
+
+export function Application () {
+
   return (
-    <div className = {styles.body}>
-      <Heading />
-      <UnsplashImage />
-    </div>
+    <AppContainer />
   );
+
 }
 
-export const App = hot(AppContainer);
+export const App = hot(Application);
