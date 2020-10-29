@@ -1,17 +1,20 @@
 import React from 'react';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import { Heading } from './Header';
-import { UnsplashImage } from './UnsplashImage';
-import styles from './AppContainer.css';
-import { authToken } from '../context/tokenContext';
-import {isAuthContext} from '../context/isAuthContext'
-import { useToken } from '../hooks/useToken';
-import imagesReducers from '../reducers/redusers'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-const store = createStore(imagesReducers, composeWithDevTools())
+import { Heading } from './Header';
+import { UnsplashImage } from './UnsplashImage';
 
+import { authToken } from '../context/tokenContext';
+import {isAuthContext } from '../context/isAuthContext'
+import { useToken } from '../hooks/useToken';
+
+import imagesReducers from '../reducers/redusers'
+
+import styles from './AppContainer.css';
+
+const store = createStore(imagesReducers, composeWithDevTools())
 
 export function AppContainer () {
   const [token] = useToken()

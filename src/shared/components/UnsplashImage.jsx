@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useStore, useDispatch, connect } from 'react-redux';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
+
 import { Loader } from './Loader';
-import styles from './UnsplashImage.css';
 import { Image } from './Image';
 import { addImages } from '../actions/actions'
 
+import styles from './UnsplashImage.css';
+
 export const UnsplashImage = (props) => {
-  // const store = useStore();
-  // const images = store.getState()
   const [ start, setStart ] = useState(1);
   const COUNT = 30;
-  // const dispatch = useDispatch();
 
   const { images, addImages } = props;
 
@@ -44,7 +43,6 @@ export const UnsplashImage = (props) => {
             // console.log(image)
           ))
         }
-        {/* {console.log(images)} */}
         </div>
       </InfiniteScroll>
     </div>
