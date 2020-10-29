@@ -122,6 +122,18 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
 
 /***/ }),
 
+/***/ "./src/shared/actions/actions.js":
+/*!***************************************!*\
+  !*** ./src/shared/actions/actions.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.likeImage = exports.addImages = void 0;\nexports.addImages = function (images) {\n    return {\n        type: 'ADD_IMAGES',\n        payload: images\n    };\n};\nexports.likeImage = function (id) {\n    return {\n        type: 'LIKE_IMAGE',\n        id: id\n    };\n};\n\n\n//# sourceURL=webpack:///./src/shared/actions/actions.js?");
+
+/***/ }),
+
 /***/ "./src/shared/components/AppContainer.css":
 /*!************************************************!*\
   !*** ./src/shared/components/AppContainer.css ***!
@@ -142,7 +154,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// Exports\n/* harmony defaul
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.AppContainer = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar Header_1 = __webpack_require__(/*! ./Header */ \"./src/shared/components/Header.jsx\");\nvar UnsplashImage_1 = __webpack_require__(/*! ./UnsplashImage */ \"./src/shared/components/UnsplashImage.jsx\");\nvar AppContainer_css_1 = __importDefault(__webpack_require__(/*! ./AppContainer.css */ \"./src/shared/components/AppContainer.css\"));\nvar tokenContext_1 = __webpack_require__(/*! ../context/tokenContext */ \"./src/shared/context/tokenContext.jsx\");\nvar isAuthContext_1 = __webpack_require__(/*! ../context/isAuthContext */ \"./src/shared/context/isAuthContext.jsx\");\nvar useToken_1 = __webpack_require__(/*! ../hooks/useToken */ \"./src/shared/hooks/useToken.jsx\");\nfunction AppContainer() {\n    var token = useToken_1.useToken()[0];\n    var isAuthenticated = !!token;\n    return (react_1.default.createElement(tokenContext_1.authToken.Provider, { value: token },\n        react_1.default.createElement(isAuthContext_1.isAuthContext.Provider, { value: isAuthenticated },\n            react_1.default.createElement(\"div\", { className: AppContainer_css_1.default.body },\n                react_1.default.createElement(Header_1.Heading, null),\n                react_1.default.createElement(UnsplashImage_1.UnsplashImage, null)))));\n}\nexports.AppContainer = AppContainer;\n\n\n//# sourceURL=webpack:///./src/shared/components/AppContainer.jsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.AppContainer = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar redux_1 = __webpack_require__(/*! redux */ \"redux\");\nvar react_redux_1 = __webpack_require__(/*! react-redux */ \"react-redux\");\nvar Header_1 = __webpack_require__(/*! ./Header */ \"./src/shared/components/Header.jsx\");\nvar UnsplashImage_1 = __webpack_require__(/*! ./UnsplashImage */ \"./src/shared/components/UnsplashImage.jsx\");\nvar AppContainer_css_1 = __importDefault(__webpack_require__(/*! ./AppContainer.css */ \"./src/shared/components/AppContainer.css\"));\nvar tokenContext_1 = __webpack_require__(/*! ../context/tokenContext */ \"./src/shared/context/tokenContext.jsx\");\nvar isAuthContext_1 = __webpack_require__(/*! ../context/isAuthContext */ \"./src/shared/context/isAuthContext.jsx\");\nvar useToken_1 = __webpack_require__(/*! ../hooks/useToken */ \"./src/shared/hooks/useToken.jsx\");\nvar redusers_1 = __importDefault(__webpack_require__(/*! ../reducers/redusers */ \"./src/shared/reducers/redusers.js\"));\nvar redux_devtools_extension_1 = __webpack_require__(/*! redux-devtools-extension */ \"redux-devtools-extension\");\nvar store = redux_1.createStore(redusers_1.default, redux_devtools_extension_1.composeWithDevTools());\nfunction AppContainer() {\n    var token = useToken_1.useToken()[0];\n    var isAuthenticated = !!token;\n    return (react_1.default.createElement(react_redux_1.Provider, { store: store },\n        react_1.default.createElement(tokenContext_1.authToken.Provider, { value: token },\n            react_1.default.createElement(isAuthContext_1.isAuthContext.Provider, { value: isAuthenticated },\n                react_1.default.createElement(\"div\", { className: AppContainer_css_1.default.body },\n                    react_1.default.createElement(Header_1.Heading, null),\n                    react_1.default.createElement(UnsplashImage_1.UnsplashImage, null))))));\n}\nexports.AppContainer = AppContainer;\n\n\n//# sourceURL=webpack:///./src/shared/components/AppContainer.jsx?");
 
 /***/ }),
 
@@ -166,7 +178,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// Exports\n/* harmony defaul
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.Heading = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar Header_css_1 = __importDefault(__webpack_require__(/*! ./Header.css */ \"./src/shared/components/Header.css\"));\nvar UserBlock_1 = __webpack_require__(/*! ./UserBlock */ \"./src/shared/components/UserBlock.jsx\");\nvar useData_1 = __webpack_require__(/*! ../hooks/useData */ \"./src/shared/hooks/useData.jsx\");\nexports.Heading = function () {\n    var data = useData_1.useData()[0];\n    return (react_1.default.createElement(\"header\", { className: Header_css_1.default.header },\n        react_1.default.createElement(\"h1\", { className: Header_css_1.default.hOne }, \"Unsplash\"),\n        react_1.default.createElement(\"p\", null, \"The internet\\u2019s source of freely usable images.\"),\n        react_1.default.createElement(\"p\", null, \"Powered by creators everywhere.\"),\n        react_1.default.createElement(UserBlock_1.UserBlock, { avatarSrc: data.iconImg, username: data.username })));\n};\n\n\n//# sourceURL=webpack:///./src/shared/components/Header.jsx?");
+eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {\n    Object.defineProperty(o, \"default\", { enumerable: true, value: v });\n}) : function(o, v) {\n    o[\"default\"] = v;\n});\nvar __importStar = (this && this.__importStar) || function (mod) {\n    if (mod && mod.__esModule) return mod;\n    var result = {};\n    if (mod != null) for (var k in mod) if (k !== \"default\" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);\n    __setModuleDefault(result, mod);\n    return result;\n};\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.Heading = void 0;\nvar react_1 = __importStar(__webpack_require__(/*! react */ \"react\"));\nvar Header_css_1 = __importDefault(__webpack_require__(/*! ./Header.css */ \"./src/shared/components/Header.css\"));\nvar UserBlock_1 = __webpack_require__(/*! ./UserBlock */ \"./src/shared/components/UserBlock.jsx\");\nvar useData_1 = __webpack_require__(/*! ../hooks/useData */ \"./src/shared/hooks/useData.jsx\");\nvar isAuthContext_1 = __webpack_require__(/*! ../context/isAuthContext */ \"./src/shared/context/isAuthContext.jsx\");\nexports.Heading = function () {\n    var data = useData_1.useData()[0];\n    var auth = react_1.useContext(isAuthContext_1.isAuthContext);\n    return (react_1.default.createElement(\"header\", { className: Header_css_1.default.header },\n        console.log(auth),\n        react_1.default.createElement(\"h1\", { className: Header_css_1.default.hOne }, \"Unsplash\"),\n        react_1.default.createElement(\"p\", null, \"The internet\\u2019s source of freely usable images.\"),\n        react_1.default.createElement(\"p\", null, \"Powered by creators everywhere.\"),\n        react_1.default.createElement(UserBlock_1.UserBlock, { avatarSrc: data.iconImg, username: data.username }),\n        auth && react_1.default.createElement(\"p\", null, \"hiiiiiiiiiiiiiiiiii\")));\n};\n\n\n//# sourceURL=webpack:///./src/shared/components/Header.jsx?");
 
 /***/ }),
 
@@ -202,7 +214,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// Exports\n/* harmony defaul
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.Image = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar Image_css_1 = __importDefault(__webpack_require__(/*! ./Image.css */ \"./src/shared/components/Image.css\"));\nexports.Image = function (_a) {\n    var url = _a.url, key = _a.key;\n    return (react_1.default.createElement(\"img\", { className: Image_css_1.default.image, src: url, key: key, id: key, alt: \"\" }));\n};\n\n\n//# sourceURL=webpack:///./src/shared/components/Image.jsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.Image = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar Image_css_1 = __importDefault(__webpack_require__(/*! ./Image.css */ \"./src/shared/components/Image.css\"));\nexports.Image = function (_a) {\n    var image = _a.image;\n    return (react_1.default.createElement(\"img\", { className: Image_css_1.default.image, src: image.urls.small, alt: \"\" }));\n};\n\n\n//# sourceURL=webpack:///./src/shared/components/Image.jsx?");
 
 /***/ }),
 
@@ -250,7 +262,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// Exports\n/* harmony defaul
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = function (d, b) {\n        extendStatics = Object.setPrototypeOf ||\n            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };\n        return extendStatics(d, b);\n    };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {\n    Object.defineProperty(o, \"default\", { enumerable: true, value: v });\n}) : function(o, v) {\n    o[\"default\"] = v;\n});\nvar __importStar = (this && this.__importStar) || function (mod) {\n    if (mod && mod.__esModule) return mod;\n    var result = {};\n    if (mod != null) for (var k in mod) if (k !== \"default\" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);\n    __setModuleDefault(result, mod);\n    return result;\n};\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.UnsplashImage = void 0;\nvar react_1 = __importStar(__webpack_require__(/*! react */ \"react\"));\nvar axios_1 = __importDefault(__webpack_require__(/*! axios */ \"axios\"));\nvar react_infinite_scroll_component_1 = __importDefault(__webpack_require__(/*! react-infinite-scroll-component */ \"react-infinite-scroll-component\"));\nvar Loader_1 = __webpack_require__(/*! ./Loader */ \"./src/shared/components/Loader.jsx\");\nvar UnsplashImage_css_1 = __importDefault(__webpack_require__(/*! ./UnsplashImage.css */ \"./src/shared/components/UnsplashImage.css\"));\nvar Image_1 = __webpack_require__(/*! ./Image */ \"./src/shared/components/Image.jsx\");\nvar UnsplashImage = /** @class */ (function (_super) {\n    __extends(UnsplashImage, _super);\n    function UnsplashImage() {\n        var _this = _super !== null && _super.apply(this, arguments) || this;\n        _this.state = {\n            images: [],\n            count: 30,\n            start: 1\n        };\n        _this.fetchImages = function () {\n            var _a = _this.state, count = _a.count, start = _a.start;\n            _this.setState({ start: _this.state.start + count });\n            axios_1.default\n                .get(\"/api/photos?count=\" + count + \"&start=\" + start)\n                .then(function (res) {\n                return _this.setState({ images: _this.state.images.concat(res.data) });\n            });\n        };\n        return _this;\n    }\n    UnsplashImage.prototype.componentDidMount = function () {\n        var _this = this;\n        var _a = this.state, count = _a.count, start = _a.start;\n        axios_1.default\n            .get(\"/api/photos?count=\" + count + \"&start=\" + start)\n            .then(function (res) { return _this.setState({ images: res.data }); });\n    };\n    UnsplashImage.prototype.render = function () {\n        return (react_1.default.createElement(react_infinite_scroll_component_1.default, { dataLength: this.state.images.length, next: this.fetchImages, hasMore: true, loader: react_1.default.createElement(Loader_1.Loader, null) },\n            react_1.default.createElement(\"div\", { className: UnsplashImage_css_1.default.images }, this.state.images.map(function (image, item) { return (react_1.default.createElement(Image_1.Image, { url: image.urls.small, key: item })\n            // {console.log(image.urls.thumb, image.id)}\n            ); }))));\n    };\n    return UnsplashImage;\n}(react_1.Component));\nexports.UnsplashImage = UnsplashImage;\nexports.default = UnsplashImage;\n\n\n//# sourceURL=webpack:///./src/shared/components/UnsplashImage.jsx?");
+eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {\n    Object.defineProperty(o, \"default\", { enumerable: true, value: v });\n}) : function(o, v) {\n    o[\"default\"] = v;\n});\nvar __importStar = (this && this.__importStar) || function (mod) {\n    if (mod && mod.__esModule) return mod;\n    var result = {};\n    if (mod != null) for (var k in mod) if (k !== \"default\" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);\n    __setModuleDefault(result, mod);\n    return result;\n};\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.UnsplashImage = void 0;\nvar react_1 = __importStar(__webpack_require__(/*! react */ \"react\"));\nvar react_redux_1 = __webpack_require__(/*! react-redux */ \"react-redux\");\nvar axios_1 = __importDefault(__webpack_require__(/*! axios */ \"axios\"));\nvar react_infinite_scroll_component_1 = __importDefault(__webpack_require__(/*! react-infinite-scroll-component */ \"react-infinite-scroll-component\"));\nvar Loader_1 = __webpack_require__(/*! ./Loader */ \"./src/shared/components/Loader.jsx\");\nvar UnsplashImage_css_1 = __importDefault(__webpack_require__(/*! ./UnsplashImage.css */ \"./src/shared/components/UnsplashImage.css\"));\nvar Image_1 = __webpack_require__(/*! ./Image */ \"./src/shared/components/Image.jsx\");\nvar actions_1 = __webpack_require__(/*! ../actions/actions */ \"./src/shared/actions/actions.js\");\nexports.UnsplashImage = function (props) {\n    // const store = useStore();\n    // const images = store.getState()\n    var _a = react_1.useState(1), start = _a[0], setStart = _a[1];\n    var COUNT = 30;\n    // const dispatch = useDispatch();\n    var images = props.images, addImages = props.addImages;\n    react_1.useEffect(function () {\n        fetchImages();\n    }, []);\n    var fetchImages = function () {\n        axios_1.default\n            .get(\"/api/photos?count=\" + COUNT + \"&start=\" + start)\n            .then(function (res) {\n            // this.setState({ images: this.state.images.concat(res.data) })\n            return addImages(res.data);\n        });\n        setStart(start + COUNT);\n    };\n    return (react_1.default.createElement(\"div\", null,\n        react_1.default.createElement(react_infinite_scroll_component_1.default, { dataLength: images.length, next: fetchImages, hasMore: true, loader: react_1.default.createElement(Loader_1.Loader, null) },\n            react_1.default.createElement(\"div\", { className: UnsplashImage_css_1.default.images }, images.map(function (image, item) { return (react_1.default.createElement(Image_1.Image, { image: image, key: item })\n            // console.log(image)\n            ); })))));\n};\nvar mapStateToProps = function (state) {\n    return {\n        images: state\n    };\n};\nvar mapDispatchToProps = function (dispatch) {\n    return {\n        addImages: function (images) { return dispatch(actions_1.addImages(images)); },\n    };\n};\nexports.UnsplashImage = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(exports.UnsplashImage);\nexports.default = exports.UnsplashImage;\n\n\n//# sourceURL=webpack:///./src/shared/components/UnsplashImage.jsx?");
 
 /***/ }),
 
@@ -310,7 +322,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexport
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.useData = void 0;\nvar react_1 = __webpack_require__(/*! react */ \"react\");\nvar axios_1 = __importDefault(__webpack_require__(/*! axios */ \"axios\"));\nvar tokenContext_1 = __webpack_require__(/*! ../context/tokenContext */ \"./src/shared/context/tokenContext.jsx\");\nfunction useData(token) {\n    var _a = react_1.useState({}), data = _a[0], setData = _a[1];\n    var token = react_1.useContext(tokenContext_1.authToken);\n    react_1.useEffect(function () {\n        axios_1.default\n            .get(\"/auth/userMe?token=\" + token)\n            .then(function (res) {\n            // console.log(\"{11}\",res);\n            setData({ username: res.data.username, iconImg: res.data.profile_image.large });\n        });\n    }, [token]);\n    return [data];\n}\nexports.useData = useData;\n\n\n//# sourceURL=webpack:///./src/shared/hooks/useData.jsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.useData = void 0;\nvar react_1 = __webpack_require__(/*! react */ \"react\");\nvar axios_1 = __importDefault(__webpack_require__(/*! axios */ \"axios\"));\nvar tokenContext_1 = __webpack_require__(/*! ../context/tokenContext */ \"./src/shared/context/tokenContext.jsx\");\nfunction useData(token) {\n    var _a = react_1.useState({}), data = _a[0], setData = _a[1];\n    var token = react_1.useContext(tokenContext_1.authToken);\n    react_1.useEffect(function () {\n        if (token && token !== 'undefined') {\n            axios_1.default\n                .get(\"/auth/userMe?token=\" + token)\n                .then(function (res) {\n                // console.log(\"{11}\",res);\n                setData({ username: res.data.username, iconImg: res.data.profile_image.large });\n            });\n        }\n    }, [token]);\n    return [data];\n}\nexports.useData = useData;\n\n\n//# sourceURL=webpack:///./src/shared/hooks/useData.jsx?");
 
 /***/ }),
 
@@ -323,6 +335,18 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
 
 "use strict";
 eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.useToken = void 0;\nvar react_1 = __webpack_require__(/*! react */ \"react\");\nfunction useToken() {\n    var _a = react_1.useState(''), token = _a[0], setToken = _a[1];\n    react_1.useEffect(function () {\n        if (window.__token__ !== 'undefined') {\n            setToken(window.__token__);\n        }\n    }, []);\n    return [token];\n}\nexports.useToken = useToken;\n\n\n//# sourceURL=webpack:///./src/shared/hooks/useToken.jsx?");
+
+/***/ }),
+
+/***/ "./src/shared/reducers/redusers.js":
+/*!*****************************************!*\
+  !*** ./src/shared/reducers/redusers.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar images = function (state, action) {\n    if (state === void 0) { state = []; }\n    switch (action.type) {\n        case 'ADD_IMAGES':\n            return state.concat(action.payload);\n        case 'LIKE_IMAGE':\n            return state;\n        default:\n            return state;\n    }\n};\nexports.default = images;\n\n\n//# sourceURL=webpack:///./src/shared/reducers/redusers.js?");
 
 /***/ }),
 
@@ -400,6 +424,39 @@ eval("module.exports = require(\"react-hot-loader/root\");\n\n//# sourceURL=webp
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"react-infinite-scroll-component\");\n\n//# sourceURL=webpack:///external_%22react-infinite-scroll-component%22?");
+
+/***/ }),
+
+/***/ "react-redux":
+/*!******************************!*\
+  !*** external "react-redux" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"react-redux\");\n\n//# sourceURL=webpack:///external_%22react-redux%22?");
+
+/***/ }),
+
+/***/ "redux":
+/*!************************!*\
+  !*** external "redux" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"redux\");\n\n//# sourceURL=webpack:///external_%22redux%22?");
+
+/***/ }),
+
+/***/ "redux-devtools-extension":
+/*!*******************************************!*\
+  !*** external "redux-devtools-extension" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"redux-devtools-extension\");\n\n//# sourceURL=webpack:///external_%22redux-devtools-extension%22?");
 
 /***/ }),
 

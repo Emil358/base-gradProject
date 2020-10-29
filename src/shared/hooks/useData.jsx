@@ -8,6 +8,7 @@ export function useData(token) {
   const token = useContext(authToken)
 
   useEffect(() => {
+    if(token && token !== 'undefined') {
     axios
       .get(`/auth/userMe?token=${token}`)
       .then(res => {
@@ -15,6 +16,7 @@ export function useData(token) {
         setData({username: res.data.username, iconImg: res.data.profile_image.large})
 
       });
+    }
   }, [token])
 
   return [data]

@@ -1,10 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 import { Heading } from './Header';
 import { UnsplashImage } from './UnsplashImage';
 import styles from './AppContainer.css';
 import { authToken } from '../context/tokenContext';
 import {isAuthContext} from '../context/isAuthContext'
 import { useToken } from '../hooks/useToken';
+import imagesReducers from '../reducers/redusers'
+import { composeWithDevTools } from 'redux-devtools-extension'
+
+const store = createStore(imagesReducers, composeWithDevTools())
 
 
 export function AppContainer () {
@@ -13,14 +19,16 @@ export function AppContainer () {
 
 
   return (
-    <authToken.Provider value={token}>
-      <isAuthContext.Provider value={isAuthenticated}>
-        <div className = {styles.body}>
-          <Heading />
-          <UnsplashImage />
-        </div>
-      </isAuthContext.Provider>
-    </authToken.Provider>
+    <Provider store={store}>
+      <authToken.Provider value={token}>
+        <isAuthContext.Provider value={isAuthenticated}>
+          <div className = {styles.body}>
+            <Heading />
+            <UnsplashImage />
+          </div>
+        </isAuthContext.Provider>
+      </authToken.Provider>
+    </Provider>
   );
 
 }

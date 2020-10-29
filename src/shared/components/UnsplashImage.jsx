@@ -1,53 +1,68 @@
-import React, { Component } from 'react';
-import axios from 'axios'
+import React, { useEffect, useState } from 'react';
+import { useStore, useDispatch, connect } from 'react-redux';
+import axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Loader } from './Loader';
 import styles from './UnsplashImage.css';
 import { Image } from './Image';
+import { addImages } from '../actions/actions'
 
-export class UnsplashImage extends Component {
-  state = {
-    images: [],
-    count: 30,
-    start: 1
-  };
+export const UnsplashImage = (props) => {
+  // const store = useStore();
+  // const images = store.getState()
+  const [ start, setStart ] = useState(1);
+  const COUNT = 30;
+  // const dispatch = useDispatch();
 
-  componentDidMount() {
-    const { count, start } = this.state;
+  const { images, addImages } = props;
+
+  useEffect(() => {
+    fetchImages();
+  }, [])
+
+  const fetchImages = () => {
     axios
-      .get(`/api/photos?count=${count}&start=${start}`)
-      .then(res => this.setState({ images: res.data }));
-  }
-
-  fetchImages = () => {
-    const { count, start } = this.state;
-    this.setState({ start: this.state.start + count });
-    axios
-      .get(`/api/photos?count=${count}&start=${start}`)
+      .get(`/api/photos?count=${COUNT}&start=${start}`)
       .then(res =>
-        this.setState({ images: this.state.images.concat(res.data) })
+        // this.setState({ images: this.state.images.concat(res.data) })
+        addImages(res.data)
       );
+    setStart(start + COUNT);
   };
-  render () {
-  return (
 
+  return (
+    <div>
       <InfiniteScroll
-        dataLength={this.state.images.length}
-        next={this.fetchImages}
+        dataLength={images.length}
+        next={fetchImages}
         hasMore={true}
         loader={<Loader />}
       >
         <div className = {styles.images}>
-        {this.state.images.map((image, item) => (
-            <Image url={image.urls.small} key={item} />
-            // {console.log(image.urls.thumb, image.id)}
+        { images.map((image, item) => (
+          <Image image={image} key={item} />
+            // console.log(image)
           ))
         }
+        {/* {console.log(images)} */}
         </div>
       </InfiniteScroll>
-
+    </div>
   );
-  }
+
 }
+
+const mapStateToProps = (state) => {
+  return{
+    images: state
+  };
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addImages: (images) => dispatch(addImages(images)),
+  };
+}
+
+UnsplashImage = connect(mapStateToProps, mapDispatchToProps)(UnsplashImage);
 
 export default UnsplashImage;
