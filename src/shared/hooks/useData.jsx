@@ -10,7 +10,7 @@ export function useData(token) {
   useEffect(() => {
     if(token && token !== 'undefined') {
     axios
-      .get(`/auth/userMe?token=${token}`)
+      .get(`/api/userMe?token=${token}`)
       .then(res => {
         // console.log("{11}",res);
         setData({username: res.data.username, iconImg: res.data.profile_image.large})

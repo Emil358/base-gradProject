@@ -1,10 +1,12 @@
 import fetch from 'node-fetch';
 global.fetch = fetch;
+import React from 'react';
 import express from 'express';
 import ReactDOM from 'react-dom/server'
 import {App} from '../shared/App'
 import {indexTemplate} from './indexTemplate';
 import Unsplash, { toJson } from 'unsplash-js';
+import { StaticRouter } from 'react-router-dom';
 
 
 const unsplash = new Unsplash({
@@ -17,11 +19,14 @@ const app = express();
 
 app.use('/static', express.static('./dist/client'))
 
-app.get('/', (req, res) => {
-  res.send(
-    indexTemplate(ReactDOM.renderToString(App()))
-  )
-});
+app.get('/api/userMe', (req, res) => {
+  unsplash.auth.setBearerToken(req.query.token)
+  unsplash.currentUser.profile ()
+    .then(toJson)
+    .then(json => res.json(json))
+    .catch(err => console.log('{10}', err))
+})
+
 
 app.get('/api/photos', (req, res) => {
   unsplash.photos.listPhotos(req.query.start, req.query.count)
@@ -30,13 +35,17 @@ app.get('/api/photos', (req, res) => {
     .catch(err => console.log('err{6}', err))
 })
 
-app.get('/auth', (req, res) => {
+app.get('/auth*', (req, res) => {
+  const context = {};
   console.log('{9}',req.query.code);
   unsplash.auth.userAuthentication(req.query.code)
     .then(toJson)
     .then(json => {
       res.send(
-        indexTemplate(ReactDOM.renderToString(App()), json.access_token)
+        indexTemplate(ReactDOM.renderToString(
+          <StaticRouter location={req.url} context={context}>
+            <App />
+          </StaticRouter>), json.access_token)
       )
       console.log('{8}',json.access_token);
     })
@@ -44,13 +53,16 @@ app.get('/auth', (req, res) => {
 
 })
 
-app.get('/auth/userMe', (req, res) => {
-  unsplash.auth.setBearerToken(req.query.token)
-  unsplash.currentUser.profile ()
-    .then(toJson)
-    .then(json => res.json(json))
-    .catch(err => console.log('{10}', err))
-})
+app.get('/', (req, res) => {
+  const context = {};
+  res.send(
+    indexTemplate(ReactDOM.renderToString(
+      <StaticRouter location={req.url} context={context}>
+        <App />
+      </StaticRouter>)
+    )
+  )
+});
 
 app.listen(3000, () => {
   console.log('server started on http://localhost:3000');

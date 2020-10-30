@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -6,12 +6,15 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { Loader } from './Loader';
 import { Image } from './Image';
 import { addImages } from '../actions/actions'
+import { isAuthContext } from '../context/isAuthContext';
 
 import styles from './UnsplashImage.css';
 
 export const UnsplashImage = (props) => {
   const [ start, setStart ] = useState(1);
   const COUNT = 30;
+
+  const isAuth = useContext(isAuthContext)
 
   const { images, addImages } = props;
 
@@ -39,7 +42,7 @@ export const UnsplashImage = (props) => {
       >
         <div className = {styles.images}>
         { images.map((image, item) => (
-          <Image image={image} key={item} />
+          <Image image={image} key={item} isAuth={isAuth} />
             // console.log(image)
           ))
         }
