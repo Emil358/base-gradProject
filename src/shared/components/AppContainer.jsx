@@ -33,8 +33,7 @@ export function AppContainer () {
             <div className = {styles.body}>
               <Heading />
               <UnsplashImage />
-              {console.log(location, background, isAuthenticated)}
-              {isAuthenticated && background && <Route path="/img/:id" children={<Modal />} /> }
+              {isAuthenticated && background && <Route path="/auth/img/:id" children={<Modal />} /> }
             </div>
           </isAuthContext.Provider>
         </authToken.Provider>

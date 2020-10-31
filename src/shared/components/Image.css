@@ -1,5 +1,105 @@
+.imageItem {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.imageItem::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background-color: rgba(43, 43, 43, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.imageItem:hover::after {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.imageItem:hover .header {
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.imageItem:hover .likes {
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
+}
+
 .image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 10px;
+  margin-left: 10px;
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  transform: translateY(-64px);
+}
+
+.avatarBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  box-shadow: none;
+  margin-right: 10px;
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 100%;
+}
+
+.headerUser {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.headerUsername {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+.headerCreatedAt {
+  font-size: 12px;
+}
+
+.likes {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  transform: translateY(40px);
+}
+
+.countLikes {
+  font-size: 20px;
+  margin-left: 5px;
+  color: #fff;
 }

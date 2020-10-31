@@ -35,7 +35,7 @@ app.get('/api/photos', (req, res) => {
     .catch(err => console.log('err{6}', err))
 })
 
-app.get('/auth*', (req, res) => {
+app.get('/auth', (req, res) => {
   const context = {};
   console.log('{9}',req.query.code);
   unsplash.auth.userAuthentication(req.query.code)
