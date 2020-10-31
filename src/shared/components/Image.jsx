@@ -19,11 +19,11 @@ export const Image = ({ image, isAuth }) => {
         <div className={styles.imageItem}>
           <img className={styles.image} src={image.urls.small}  alt="" />
           <div className={styles.header}>
-            <span href={image.user.links.html} className={styles.avatarBox} target="_blank">
+            <span className={styles.avatarBox} target="_blank">
               <img src={image.user.profile_image.medium} className={styles.avatarImage} alt={image.alt_description} />
             </span>
             <div className={styles.headerUser}>
-              <span href={image.user.links.html} className={styles.headerUsername} target="_blank">{image.user.username}</span>
+              <span className={styles.headerUsername} target="_blank">{image.user.username}</span>
               <span className={styles.headerCreatedAt}>{date.getDate()} {months[date.getMonth()]} {date.getFullYear()}</span>
             </div>
           </div>

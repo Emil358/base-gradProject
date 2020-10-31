@@ -20,7 +20,6 @@ const app = express();
 app.use('/static', express.static('./dist/client'))
 
 app.get('/api/userMe', (req, res) => {
-  unsplash.auth.setBearerToken(req.query.token)
   unsplash.currentUser.profile ()
     .then(toJson)
     .then(json => res.json(json))
@@ -41,6 +40,7 @@ app.get('/auth', (req, res) => {
   unsplash.auth.userAuthentication(req.query.code)
     .then(toJson)
     .then(json => {
+      unsplash.auth.setBearerToken(json.access_token)
       res.send(
         indexTemplate(ReactDOM.renderToString(
           <StaticRouter location={req.url} context={context}>
