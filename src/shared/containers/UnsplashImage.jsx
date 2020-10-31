@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-import { Loader } from './Loader';
-import { Image } from './Image';
+import { Loader } from '../components/Loader';
+import { Image } from '../components/Image';
 import { addImages } from '../actions/actions'
 import { isAuthContext } from '../context/isAuthContext';
 

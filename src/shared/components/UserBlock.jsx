@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './UserBlock.css'
-import {IconAnon} from './IconAnon'
+import {IconAnon} from '../icons/IconAnon'
 
 export const UserBlock = ({avatarSrc, username}) => {
   return (

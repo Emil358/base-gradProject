@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import styles from './Header.css';
-import { UserBlock } from './UserBlock';
+import { UserBlock } from '../components/UserBlock';
 import { useData } from '../hooks/useData';
 
 

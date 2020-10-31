@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { likeImage } from '../actions/actions';
 import styles from './Modal.css';
-import { IconClose } from './IconClose';
-import { IconHeart } from './IconHeartForModal';
+import { IconClose } from '../icons/IconClose';
+import { IconHeart } from '../icons/IconHeartForModal';
 
 export const Modal = (props) => {
   let history = useHistory();

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Image.css';
 import { Link, useLocation } from "react-router-dom";
-import { IconHeart } from './IconHeart';
+import { IconHeart } from '../icons/IconHeart';
 
 export const Image = ({ image, isAuth }) => {
   let location = useLocation();
