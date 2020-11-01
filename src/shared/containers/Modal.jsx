@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import { useHistory, useParams } from 'react-router-dom';
+
+import { authToken } from '../context/tokenContext';
 import { likeImage } from '../actions/actions';
-import styles from './Modal.css';
+
 import { IconClose } from '../icons/IconClose';
 import { IconHeart } from '../icons/IconHeartForModal';
+
+import styles from './Modal.css';
 
 export const Modal = (props) => {
   let history = useHistory();
   let { id } = useParams();
 
   const {images, likeImage} = props;
+
+  const token = useContext(authToken)
 
   const image
 
@@ -20,13 +27,32 @@ export const Modal = (props) => {
     }
   }
 
-  let date = new Date(image.created_at);
-  let months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
+  const date = new Date(image.created_at);
+  const months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
 
-  let back = event => {
+  const back = event => {
     event.stopPropagation();
     history.goBack();
   };
+
+  const likePost = (id) => {
+    if (!image.liked_by_user) {
+      axios
+      .get(`/api/likePhoto?id=${id}&token=${token}`)
+      .then(res => {
+        likeImage(id)
+      })
+      .catch(err => console.log('{12}', err));
+    } else {
+      axios
+      .get(`/api/unlikePhoto?id=${id}&token=${token}`)
+      .then(res => {
+        likeImage(id)
+      })
+      .catch(err => console.log('{12}', err));
+    }
+  }
+
 
   return (
     <div className={styles.modal} onClick={back}>
@@ -49,7 +75,10 @@ export const Modal = (props) => {
           <img className={styles.image} src={image.urls.regular} alt={image.alt_description}/>
         </div>
         <div className={styles.footer}>
-          <button className={styles.like}>
+          <button
+            className={styles.like}
+            onClick={() => likePost(image.id)}
+          >
             <IconHeart like={image.liked_by_user} />
             <span className={styles.countLikes}>{image.likes}</span>
           </button>

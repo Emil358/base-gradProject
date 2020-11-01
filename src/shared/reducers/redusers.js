@@ -4,6 +4,16 @@ const images = (state = [], action) => {
       return state.concat(action.payload);
 
     case 'LIKE_IMAGE':
+      state.map(image => {
+        if (image.id === action.id) {
+          image.liked_by_user = !image.liked_by_user
+          if (image.liked_by_user) {
+            image.likes = ++image.likes
+          } else {
+            image.likes = --image.likes
+          }
+        }
+      })
       return state;
 
     default:

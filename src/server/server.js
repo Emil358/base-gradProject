@@ -19,7 +19,24 @@ const app = express();
 
 app.use('/static', express.static('./dist/client'))
 
+app.get('/api/likePhoto', (req, res) => {
+  unsplash.auth.setBearerToken(req.query.token)
+  unsplash.photos.likePhoto(req.query.id)
+    .then(toJson)
+    .then(json => res.json(json))
+    .catch(err => console.log('{13}', err))
+})
+
+app.get('/api/unlikePhoto', (req, res) => {
+  unsplash.auth.setBearerToken(req.query.token)
+  unsplash.photos.unlikePhoto(req.query.id)
+    .then(toJson)
+    .then(json => res.json(json))
+    .catch(err => console.log('{13}', err))
+})
+
 app.get('/api/userMe', (req, res) => {
+  unsplash.auth.setBearerToken(req.query.token)
   unsplash.currentUser.profile ()
     .then(toJson)
     .then(json => res.json(json))
