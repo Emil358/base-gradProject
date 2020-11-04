@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "54f3c9df7b84ea90d44c";
+/******/ 	var hotCurrentHash = "08974c2a21b46a4625a7";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -2797,7 +2797,7 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar images = function (state, action) {\n    if (state === void 0) { state = []; }\n    switch (action.type) {\n        case 'ADD_IMAGES':\n            return state.concat(action.payload);\n        case 'LIKE_IMAGE':\n            state.map(function (image) {\n                if (image.id === action.id) {\n                    image.liked_by_user = !image.liked_by_user;\n                    if (image.liked_by_user) {\n                        image.likes = ++image.likes;\n                    }\n                    else {\n                        image.likes = --image.likes;\n                    }\n                }\n            });\n            return state;\n        default:\n            return state;\n    }\n};\nexports.default = images;\n\n\n//# sourceURL=webpack:///./src/shared/reducers/redusers.js?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar images = function (state, action) {\n    if (state === void 0) { state = []; }\n    switch (action.type) {\n        case 'ADD_IMAGES':\n            return state.concat(action.payload);\n        case 'LIKE_IMAGE':\n            var newState = state.map(function (image) {\n                if (image.id === action.id) {\n                    image.liked_by_user = !image.liked_by_user;\n                    if (image.liked_by_user) {\n                        image.likes = ++image.likes;\n                    }\n                    else {\n                        image.likes = --image.likes;\n                    }\n                }\n                return image;\n            });\n            console.log(newState);\n            return newState;\n        default:\n            return state;\n    }\n};\nexports.default = images;\n\n\n//# sourceURL=webpack:///./src/shared/reducers/redusers.js?");
 
 /***/ }),
 
