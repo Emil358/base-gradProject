@@ -1,12 +1,15 @@
 import React from 'react';
-import styles from './Image.css';
 import { Link, useLocation } from "react-router-dom";
+
+import { getDate } from '../gets/getDate'
+
+import styles from './Image.css';
+
 import { IconHeart } from '../icons/IconHeart';
 
 export const Image = ({ image, isAuth }) => {
   let location = useLocation();
-  let date = new Date(image.created_at);
-  let months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
+  const date = getDate(image.created_at);
 
   if(isAuth) {
     return(
@@ -24,7 +27,7 @@ export const Image = ({ image, isAuth }) => {
             </span>
             <div className={styles.headerUser}>
               <span className={styles.headerUsername} target="_blank">{image.user.username}</span>
-              <span className={styles.headerCreatedAt}>{date.getDate()} {months[date.getMonth()]} {date.getFullYear()}</span>
+              <span className={styles.headerCreatedAt}>{date}</span>
             </div>
           </div>
           <div className={styles.likes}>
@@ -44,7 +47,7 @@ export const Image = ({ image, isAuth }) => {
         </a>
         <div className={styles.headerUser}>
           <a href={image.user.links.html} className={styles.headerUsername} target="_blank">{image.user.username}</a>
-          <span className={styles.headerCreatedAt}>{date.getDate()} {months[date.getMonth()]} {date.getFullYear()}</span>
+          <span className={styles.headerCreatedAt}>{date}</span>
         </div>
       </div>
       <div className={styles.likes}>

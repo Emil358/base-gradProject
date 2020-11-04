@@ -2,6 +2,7 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals')
 
 const NODE_ENV = process.env.NODE_ENV;
+const GLOBAL_CSS = /\.global\.css/;
 
 module.exports = {
   target: 'node',
@@ -34,7 +35,12 @@ module.exports = {
               },
             }
           }
-        ]
+        ],
+        exclude: GLOBAL_CSS
+      },
+      {
+        test: GLOBAL_CSS,
+        use: ['css-loader']
       }
     ]
  },

@@ -9,22 +9,6 @@ export const indexTemplate = (content, token) => `
   <script>
     window.__token__= '${token}'
   </script>
-  <style>
-  html {
-    box-sizing: border-box;
-  }
-
-  *,
-  ::before,
-  ::after {
-    box-sizing: inherit;
-  }
-
-  body {
-    margin: 0;
-    min-width: 320px;
-  }
-</style>
 </head>
 <body>
   <div id="root">${content}</div>

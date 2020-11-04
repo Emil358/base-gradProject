@@ -6,7 +6,7 @@ import { useLocation, Route } from 'react-router-dom';
 
 import { Heading } from './Header';
 import { UnsplashImage } from './UnsplashImage';
-import { Modal } from './Modal'
+import { ModalContainer } from './ModalContainer'
 
 import { authToken } from '../context/tokenContext';
 import {isAuthContext } from '../context/isAuthContext';
@@ -33,7 +33,7 @@ export function AppContainer () {
             <div className = {styles.body}>
               <Heading />
               <UnsplashImage />
-              {isAuthenticated && background && <Route path="/auth/img/:id" children={<Modal />} /> }
+              {isAuthenticated && background && <Route path="/auth/img/:id" children={<ModalContainer />} /> }
             </div>
           </isAuthContext.Provider>
         </authToken.Provider>

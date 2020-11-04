@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const NODE_ENV = process.env.NODE_ENV;
 const IS_DEV = NODE_ENV === 'development';
 const IS_PROD = NODE_ENV === 'production';
+const GLOBAL_CSS = /\.global\.css/;
 
 function setupDevtool () {
   if(IS_DEV) {
@@ -50,7 +51,12 @@ module.exports = {
               }
             }
           }
-        ]
+        ],
+        exclude: GLOBAL_CSS
+      },
+      {
+        test: GLOBAL_CSS,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },

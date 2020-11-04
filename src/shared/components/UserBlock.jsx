@@ -1,11 +1,14 @@
 import React from 'react';
-import styles from './UserBlock.css'
-import {IconAnon} from '../icons/IconAnon'
+import styles from './UserBlock.css';
+import { IconAnon } from '../icons/IconAnon';
+import { getAuthUrl } from '../gets/getAuthenticationUrl';
 
 export const UserBlock = ({avatarSrc, username}) => {
+  const authenticationUrl = getAuthUrl();
+
   return (
     <a
-      href = 'https://unsplash.com/oauth/authorize?client_id=HmESHW-LSmwiDl4Gs3MOm-Qlksijb1XVrTIN4W7nJCc&redirect_uri=http://localhost:3000/auth&response_type=code&scope=public+write_likes'
+      href = {authenticationUrl}
       className = {styles.userBox}
       >
       <div className = {styles.avatarBox}>

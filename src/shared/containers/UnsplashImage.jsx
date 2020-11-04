@@ -26,7 +26,6 @@ export const UnsplashImage = (props) => {
     axios
       .get(`/api/photos?count=${COUNT}&start=${start}`)
       .then(res =>
-        // this.setState({ images: this.state.images.concat(res.data) })
         addImages(res.data)
       );
     setStart(start + COUNT);
