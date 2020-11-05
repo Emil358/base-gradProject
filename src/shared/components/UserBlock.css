@@ -9,12 +9,24 @@
   align-items: center;
 }
 
-.userBox:hover span {
+.userBox:hover span, .userBoxIsAuth:hover span {
   color: gray;
 }
 
-.userBox:hover .avatarBox {
+.userBox:hover .avatarBox, .userBoxIsAuth:hover .avatarBox{
   box-shadow: 0 0 0 1px gray;
+}
+
+.userBoxIsAuth {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  right: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .avatarBox {
@@ -33,6 +45,7 @@
 }
 
 .username {
+  font-size: 12px;
   margin-left: 3px;
   color: #000;
   display: none;

@@ -53,7 +53,20 @@ app.get('/api/photos', (req, res) => {
 
 app.get('/auth', (req, res) => {
   const context = {};
+  if(req.query.token) {
+
+    unsplash.auth.setBearerToken(req.query.token)
+      res.send(
+        indexTemplate(ReactDOM.renderToString(
+          <StaticRouter location={req.url} context={context}>
+            <App />
+          </StaticRouter>), req.query.token)
+      )
+
+  } else if (req.query.code) {
+
   console.log('{9}',req.query.code);
+
   unsplash.auth.userAuthentication(req.query.code)
     .then(toJson)
     .then(json => {
@@ -67,7 +80,7 @@ app.get('/auth', (req, res) => {
       console.log('{8}',json.access_token);
     })
     .catch(err => console.log('err{7}',err))
-
+  }
 })
 
 app.get('/', (req, res) => {

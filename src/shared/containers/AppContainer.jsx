@@ -16,7 +16,7 @@ import imagesReducers from '../reducers/redusers';
 
 import styles from './AppContainer.css';
 
-const store = createStore(imagesReducers, composeWithDevTools())
+const store = createStore(imagesReducers, composeWithDevTools());
 
 export function AppContainer () {
   const [token] = useToken()
@@ -24,7 +24,6 @@ export function AppContainer () {
 
   let location = useLocation();
   let background = location.state && location.state.background;
-
 
   return (
       <Provider store={store}>
@@ -39,5 +38,4 @@ export function AppContainer () {
         </authToken.Provider>
       </Provider>
   );
-
 }
