@@ -3,7 +3,7 @@ import styles from './Header.css';
 import { UserBlock } from '../components/UserBlock';
 import { useData } from '../hooks/useData';
 import { isAuthContext } from '../context/isAuthContext';
-
+import { Logo } from '../components/Logo'
 
 export const Heading = () => {
   const [data] = useData()
@@ -15,9 +15,7 @@ export const Heading = () => {
 
   return (
     <header className = {styles.header}>
-      <h1 className = {styles.hOne}>gradProject</h1>
-      <p>The internet’s source of freely usable images.</p>
-      <p>Powered by creators everywhere.</p>
+      <Logo />
       <UserBlock avatarSrc={data.iconImg} username={data.username} isAuth = {isAuth} logOut={logOut} />
     </header>
   )

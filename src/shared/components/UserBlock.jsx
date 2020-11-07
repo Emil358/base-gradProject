@@ -3,6 +3,7 @@ import styles from './UserBlock.css';
 
 import { IconAnon } from '../icons/IconAnon';
 import { getAuthUrl } from '../gets/getAuthenticationUrl';
+import { IconClose } from '../icons/IconClose';
 
 export const UserBlock = ({avatarSrc, username, isAuth, logOut}) => {
 
@@ -14,14 +15,11 @@ export const UserBlock = ({avatarSrc, username, isAuth, logOut}) => {
         className = {styles.userBoxIsAuth}
         >
         <div className = {styles.avatarBox}>
-          {avatarSrc
-          ? <img src = {avatarSrc} alt = 'user avatar' className = {styles.avatarImage} />
-          : <IconAnon />
-          }
+          <img src = {avatarSrc} alt = 'user avatar' className={styles.avatarImage} />
         </div>
 
         <div className = {styles.username}>
-          <span>{username || 'Аноним'}</span>
+          <span>{username}</span>
         </div>
       </button>
     )
