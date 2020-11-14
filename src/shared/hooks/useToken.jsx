@@ -27,7 +27,7 @@ export function useToken() {
         setToken(localStorageToken);
         window.__token__= localStorageToken;
       } else if (Location.pathname === '/') {
-        location.assign(`http://localhost:3000/auth?token=${localStorageToken}`)
+        location.assign(`http://faiz-emil.ru/auth?token=${localStorageToken}`)
       }
     }
   }, []);

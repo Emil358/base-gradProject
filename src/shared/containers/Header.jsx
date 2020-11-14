@@ -10,7 +10,7 @@ export const Heading = () => {
   const isAuth = useContext(isAuthContext);
   const logOut = () => {
     localStorage.removeItem('token')
-    location.assign('http://localhost:3000/')
+    location.assign('http://faiz-emil.ru/')
   }
 
   return (

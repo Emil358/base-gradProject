@@ -86,6 +86,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n  Author Tobias Koppers @sokra\n*/\n// css base code, injected by the css-loader\n// eslint-disable-next-line func-names\nmodule.exports = function (cssWithMappingToString) {\n    var list = []; // return the list of modules as css string\n    list.toString = function toString() {\n        return this.map(function (item) {\n            var content = cssWithMappingToString(item);\n            if (item[2]) {\n                return \"@media \".concat(item[2], \" {\").concat(content, \"}\");\n            }\n            return content;\n        }).join('');\n    }; // import a list of modules into the list\n    // eslint-disable-next-line func-names\n    list.i = function (modules, mediaQuery, dedupe) {\n        if (typeof modules === 'string') {\n            // eslint-disable-next-line no-param-reassign\n            modules = [[null, modules, '']];\n        }\n        var alreadyImportedModules = {};\n        if (dedupe) {\n            for (var i = 0; i < this.length; i++) {\n                // eslint-disable-next-line prefer-destructuring\n                var id = this[i][0];\n                if (id != null) {\n                    alreadyImportedModules[id] = true;\n                }\n            }\n        }\n        for (var _i = 0; _i < modules.length; _i++) {\n            var item = [].concat(modules[_i]);\n            if (dedupe && alreadyImportedModules[item[0]]) {\n                // eslint-disable-next-line no-continue\n                continue;\n            }\n            if (mediaQuery) {\n                if (!item[2]) {\n                    item[2] = mediaQuery;\n                }\n                else {\n                    item[2] = \"\".concat(mediaQuery, \" and \").concat(item[2]);\n                }\n            }\n            list.push(item);\n        }\n    };\n    return list;\n};\n\n\n//# sourceURL=webpack:///./node_modules/css-loader/dist/runtime/api.js?");
+
+/***/ }),
+
 /***/ "./src/server/indexTemplate.js":
 /*!*************************************!*\
   !*** ./src/server/indexTemplate.js ***!
@@ -94,7 +106,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.indexTemplate = void 0;\nexports.indexTemplate = function (content, token) { return \"\\n<!DOCTYPE html>\\n<html lang=\\\"ru\\\">\\n<head>\\n  <meta charset=\\\"UTF-8\\\">\\n  <meta name=\\\"viewport\\\" content=\\\"width=device-width, initial-scale=1.0\\\">\\n  <title>GradProject</title>\\n  <script src=\\\" /static/client.js\\\" type=\\\"application/javascript\\\"></script>\\n  <script>\\n    window.__token__= '\" + token + \"'\\n  </script>\\n</head>\\n<body>\\n  <div id=\\\"root\\\">\" + content + \"</div>\\n</body>\\n</html>\\n\"; };\n\n\n//# sourceURL=webpack:///./src/server/indexTemplate.js?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.indexTemplate = void 0;\nexports.indexTemplate = function (content, token) { return \"\\n<!DOCTYPE html>\\n<html lang=\\\"ru\\\">\\n<head>\\n  <meta charset=\\\"UTF-8\\\">\\n  <meta name=\\\"viewport\\\" content=\\\"width=device-width, initial-scale=1.0\\\">\\n  <title>GradProject</title>\\n  <script src=\\\"/static/client.js\\\" type=\\\"application/javascript\\\"></script>\\n  <script>\\n    window.__token__= '\" + token + \"'\\n  </script>\\n</head>\\n<body>\\n  <div id=\\\"root\\\">\" + content + \"</div>\\n</body>\\n</html>\\n\"; };\n\n\n//# sourceURL=webpack:///./src/server/indexTemplate.js?");
 
 /***/ }),
 
@@ -118,7 +130,7 @@ eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ?
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.App = exports.Application = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar root_1 = __webpack_require__(/*! react-hot-loader/root */ \"react-hot-loader/root\");\nvar AppContainer_1 = __webpack_require__(/*! ./containers/AppContainer */ \"./src/shared/containers/AppContainer.jsx\");\nfunction Application() {\n    return (react_1.default.createElement(AppContainer_1.AppContainer, null));\n}\nexports.Application = Application;\nexports.App = root_1.hot(Application);\n\n\n//# sourceURL=webpack:///./src/shared/App.jsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.App = exports.Application = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar root_1 = __webpack_require__(/*! react-hot-loader/root */ \"react-hot-loader/root\");\nvar AppContainer_1 = __webpack_require__(/*! ./containers/AppContainer */ \"./src/shared/containers/AppContainer.jsx\");\n__webpack_require__(/*! ./main.global.css */ \"./src/shared/main.global.css\");\nfunction Application() {\n    return (react_1.default.createElement(AppContainer_1.AppContainer, null));\n}\nexports.Application = Application;\nexports.App = root_1.hot(Application);\n\n\n//# sourceURL=webpack:///./src/shared/App.jsx?");
 
 /***/ }),
 
@@ -250,7 +262,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// Exports\n/* harmony defaul
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.UserBlock = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar UserBlock_css_1 = __importDefault(__webpack_require__(/*! ./UserBlock.css */ \"./src/shared/components/UserBlock.css\"));\nvar IconAnon_1 = __webpack_require__(/*! ../icons/IconAnon */ \"./src/shared/icons/IconAnon.jsx\");\nvar getAuthenticationUrl_1 = __webpack_require__(/*! ../gets/getAuthenticationUrl */ \"./src/shared/gets/getAuthenticationUrl.js\");\nexports.UserBlock = function (_a) {\n    var avatarSrc = _a.avatarSrc, username = _a.username, isAuth = _a.isAuth, logOut = _a.logOut;\n    var authenticationUrl = getAuthenticationUrl_1.getAuthUrl();\n    if (isAuth) {\n        return (react_1.default.createElement(\"button\", { onClick: logOut, className: UserBlock_css_1.default.userBoxIsAuth },\n            react_1.default.createElement(\"div\", { className: UserBlock_css_1.default.avatarBox }, avatarSrc\n                ? react_1.default.createElement(\"img\", { src: avatarSrc, alt: 'user avatar', className: UserBlock_css_1.default.avatarImage })\n                : react_1.default.createElement(IconAnon_1.IconAnon, null)),\n            react_1.default.createElement(\"div\", { className: UserBlock_css_1.default.username },\n                react_1.default.createElement(\"span\", null, username || 'Аноним'))));\n    }\n    return (react_1.default.createElement(\"a\", { href: authenticationUrl, className: UserBlock_css_1.default.userBox },\n        react_1.default.createElement(\"div\", { className: UserBlock_css_1.default.avatarBox },\n            react_1.default.createElement(IconAnon_1.IconAnon, null)),\n        react_1.default.createElement(\"div\", { className: UserBlock_css_1.default.username },\n            react_1.default.createElement(\"span\", null, 'Аноним'))));\n};\n\n\n//# sourceURL=webpack:///./src/shared/components/UserBlock.jsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.UserBlock = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar UserBlock_css_1 = __importDefault(__webpack_require__(/*! ./UserBlock.css */ \"./src/shared/components/UserBlock.css\"));\nvar IconAnon_1 = __webpack_require__(/*! ../icons/IconAnon */ \"./src/shared/icons/IconAnon.jsx\");\nvar getAuthenticationUrl_1 = __webpack_require__(/*! ../gets/getAuthenticationUrl */ \"./src/shared/gets/getAuthenticationUrl.js\");\nexports.UserBlock = function (_a) {\n    var avatarSrc = _a.avatarSrc, username = _a.username, isAuth = _a.isAuth, logOut = _a.logOut;\n    var authenticationUrl = getAuthenticationUrl_1.getAuthUrl();\n    if (isAuth) {\n        return (react_1.default.createElement(\"button\", { onClick: logOut, className: UserBlock_css_1.default.userBoxIsAuth },\n            react_1.default.createElement(\"div\", { className: UserBlock_css_1.default.avatarBox },\n                react_1.default.createElement(\"img\", { src: avatarSrc, alt: 'user avatar', className: UserBlock_css_1.default.avatarImage })),\n            react_1.default.createElement(\"div\", { className: UserBlock_css_1.default.username },\n                react_1.default.createElement(\"span\", null, username))));\n    }\n    return (react_1.default.createElement(\"a\", { href: authenticationUrl, className: UserBlock_css_1.default.userBox },\n        react_1.default.createElement(\"div\", { className: UserBlock_css_1.default.avatarBox },\n            react_1.default.createElement(IconAnon_1.IconAnon, null)),\n        react_1.default.createElement(\"div\", { className: UserBlock_css_1.default.username },\n            react_1.default.createElement(\"span\", null, 'Аноним'))));\n};\n\n\n//# sourceURL=webpack:///./src/shared/components/UserBlock.jsx?");
 
 /***/ }),
 
@@ -286,7 +298,7 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n\t\"header\": \"Header__header--HwjvF\",\n\t\"hOne\": \"Header__hOne--368bH\"\n});\n\n\n//# sourceURL=webpack:///./src/shared/containers/Header.css?");
+eval("__webpack_require__.r(__webpack_exports__);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n\t\"header\": \"Header__header--HwjvF\"\n});\n\n\n//# sourceURL=webpack:///./src/shared/containers/Header.css?");
 
 /***/ }),
 
@@ -455,6 +467,18 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
 
 "use strict";
 eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.IconHeart = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nexports.IconHeart = function (_a) {\n    var like = _a.like;\n    if (like) {\n        return (react_1.default.createElement(\"svg\", { \"aria-label\": \"\\u041D\\u0435 \\u043D\\u0440\\u0430\\u0432\\u0438\\u0442\\u0441\\u044F\", fill: \"red\", height: \"24\", viewBox: \"0 0 48 48\", width: \"24\" },\n            react_1.default.createElement(\"path\", { d: \"M34.6 3.1c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5s1.1-.2 1.6-.5c1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z\" })));\n    }\n    return (react_1.default.createElement(\"svg\", { \"aria-label\": \"\\u041D\\u0440\\u0430\\u0432\\u0438\\u0442\\u0441\\u044F\", fill: \"black\", height: \"24\", viewBox: \"0 0 48 48\", width: \"24\" },\n        react_1.default.createElement(\"path\", { d: \"M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z\" })));\n};\n\n\n//# sourceURL=webpack:///./src/shared/icons/IconHeartForModal.jsx?");
+
+/***/ }),
+
+/***/ "./src/shared/main.global.css":
+/*!************************************!*\
+  !*** ./src/shared/main.global.css ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.i, \"html {\\n  box-sizing: border-box;\\n}\\n\\n*,\\n::before,\\n::after {\\n  box-sizing: inherit;\\n}\\n\\nbody {\\n  margin: 0;\\n  min-width: 320px;\\n}\\n\", \"\"]);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack:///./src/shared/main.global.css?");
 
 /***/ }),
 
