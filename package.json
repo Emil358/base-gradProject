@@ -43,5 +43,5 @@
     "webpack-hot-middleware": "^2.25.0",
     "webpack-node-externals": "^2.5.2"
   },
-  "proxy": "http://localhost:3000"
+  "proxy": "http://faiz-emil.ru"
 }
