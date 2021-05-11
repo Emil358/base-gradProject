@@ -12,7 +12,7 @@ import { StaticRouter } from 'react-router-dom';
 const unsplash = new Unsplash({
   accessKey: 'HmESHW-LSmwiDl4Gs3MOm-Qlksijb1XVrTIN4W7nJCc',
   secret: 'wMv3YV1LWZtyzVo46q63L_yBS2GN-Ceqa7OP6WZYgOs',
-  callbackUrl: 'http://faiz-emil.ru/auth'
+  callbackUrl: 'http://localhost:3000/auth'
 })
 
 const app = express();
@@ -94,6 +94,6 @@ app.get('/', (req, res) => {
   )
 });
 
-app.listen(80, () => {
-  console.log('server started on http://faiz-emil.ru');
+app.listen(3000, () => {
+  console.log('server started on http://localhost:3000');
 });
